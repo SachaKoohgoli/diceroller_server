@@ -38,7 +38,7 @@ HTTP 201
 ```
 
 ## GET /diceroller
-This endpoint wil roll any number of any sided dice, provided that the user submits a valid access token. The total die result will be returned, along with a breakdown of the rolls of each die so that the user can fudge the numbers as they see fit.
+This endpoint wil roll any number of any sided dice, provided that the user submits a valid access token. The total die result will be returned along with a breakdown of the rolls of each die so that the GM can fudge the numbers as they see fit before announcing it to their group.
 
 ### Parameters
 All parameters are Query parameters
