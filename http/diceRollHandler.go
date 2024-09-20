@@ -12,9 +12,9 @@ import (
 	"time"
 )
 
-// +HttpDieRollResult+ is the web-only response data format for the dice roll handler
+// +HttpDiceRollResult+ is the web-only response data format for the dice roll handler
 // This should not be used internally
-type HttpDieRollResult struct {
+type HttpDiceRollResult struct {
 	Total     int              `json:"total"`
 	Breakdown map[string][]int `json:"breakdown"`
 }
@@ -35,7 +35,7 @@ func RollDice(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	dieRollResult := HttpDieRollResult{}
+	diceRollResult := HttpDiceRollResult{}
 
 	for key, value := range params {
 		// Handle auth token
@@ -59,7 +59,7 @@ func RollDice(writer http.ResponseWriter, request *http.Request) {
 			}
 		}
 
-		// Handle die rolling
+		// Handle dice rolling
 		if key == "dice" {
 			allDice := value
 			fmt.Printf("%s: %s\n", key, allDice)
@@ -104,10 +104,10 @@ func RollDice(writer http.ResponseWriter, request *http.Request) {
 					totalRollValue += rollResult
 				}
 			}
-			dieRollResult.Total = totalRollValue
-			dieRollResult.Breakdown = dieRolls
+			diceRollResult.Total = totalRollValue
+			diceRollResult.Breakdown = dieRolls
 		}
 	}
 
-	json.NewEncoder(writer).Encode(dieRollResult)
+	json.NewEncoder(writer).Encode(diceRollResult)
 }

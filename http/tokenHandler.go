@@ -13,7 +13,8 @@ type HttpToken struct {
 	Token string `json:"token"`
 }
 
-// Generate the web token, return 200
+// Generate the web token, return 200 in a +HttpToken+
 func HandleTokenGeneration(writer http.ResponseWriter, request *http.Request) {
+	writer.WriteHeader(201)
 	json.NewEncoder(writer).Encode(HttpToken{accesstoken.GenerateToken(time.Now().UTC()).EncodedVal})
 }

@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "0be34228-de67-4c67-aaa4-f2d00f929b50",
+		"name": "Diceroller",
+		"description": "Collection for making http requests as per job interview standards.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38484843"
+	},
+	"item": [
+		{
+			"name": "Generate Three Minute Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{web-url}}/token",
+					"protocol": "https",
+					"host": [
+						"{{web-url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Roll Dice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{web-url}}/diceroller?dice=1d4&dice=5d12&token=REPLACE_ME_WITH_GENERATED_TOKEN",
+					"protocol": "https",
+					"host": [
+						"{{web-url}}"
+					],
+					"path": [
+						"diceroller"
+					],
+					"query": [
+						{
+							"key": "dice",
+							"value": "1d4"
+						},
+						{
+							"key": "dice",
+							"value": "5d12"
+						},
+						{
+							"key": "token",
+							"value": "REPLACE_ME_WITH_GENERATED_TOKEN"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "web-url",
+			"value": "direrollerserver-382425995150.us-central1.run.app"
+		}
+	]
+}

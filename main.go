@@ -11,7 +11,7 @@ import (
 func main() {
 	urlRouter := mux.NewRouter()
 
-	// urlRouter.HandleFunc("/", homeHandler)
+	urlRouter.HandleFunc("/", internalHttp.PresentReadme)
 
 	urlRouter.HandleFunc("/diceroller", internalHttp.RollDice).Methods(http.MethodGet)
 	urlRouter.HandleFunc("/token", internalHttp.HandleTokenGeneration).Methods(http.MethodPost, http.MethodGet)
