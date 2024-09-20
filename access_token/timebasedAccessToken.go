@@ -1,4 +1,4 @@
-package helpers
+package accesstoken
 
 import (
 	"encoding/base64"
